@@ -1,102 +1,29 @@
-{
-  "openapi": "3.0.0",
-  "info": {
-    "title": "🎬 OBEDTECH Movies & TV API",
-    "version": "1.0.0",
-    "description": "A REST API to manage movies and TV shows for OBEDTECH Stream."
+import swaggerJsdoc from "swagger-jsdoc";
+
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "🎬 OBEDTECH Movie & TV API",
+      version: "1.0.0",
+      description:
+        "Welcome to OBEDTECH's Movie & TV API. Use the endpoints below to manage or fetch movie data. Try them live!",
+      contact: {
+        name: "OBEDTECH",
+        url: "https://obedtech-api.onrender.com",
+        email: "support@obedtech.com",
+      },
+    },
+    servers: [
+      {
+        url: "https://obedtech-api.onrender.com",
+      },
+      {
+        url: "http://localhost:5000",
+      },
+    ],
   },
-  "servers": [
-    { "url": "https://yourapi.onrender.com", "description": "Live Server" },
-    { "url": "http://localhost:5000", "description": "Local Server" }
-  ],
-  "paths": {
-    "/api/movies": {
-      "get": {
-        "summary": "Get all movies",
-        "responses": { "200": { "description": "List of movies" } }
-      }
-    },
-    "/api/search/{title}": {
-      "get": {
-        "summary": "Search movies by title",
-        "parameters": [
-          { "name": "title", "in": "path", "required": true, "schema": { "type": "string" } }
-        ],
-        "responses": { "200": { "description": "Movies matching title" } }
-      }
-    },
-    "/api/info/{id}": {
-      "get": {
-        "summary": "Get movie details by ID",
-        "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
-        ],
-        "responses": { "200": { "description": "Movie data" } }
-      }
-    },
-    "/api/add": {
-      "post": {
-        "summary": "Add new movie",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "title": { "type": "string" },
-                  "description": { "type": "string" },
-                  "year": { "type": "integer" },
-                  "category": { "type": "string" },
-                  "poster": { "type": "string" },
-                  "videoUrl": { "type": "string" }
-                }
-              }
-            }
-          }
-        },
-        "responses": { "200": { "description": "Movie added successfully" } }
-      }
-    },
-    "/api/tvshows": {
-      "get": {
-        "summary": "List all TV shows",
-        "responses": { "200": { "description": "List of shows" } }
-      }
-    },
-    "/api/tv/{id}": {
-      "get": {
-        "summary": "Get TV show details",
-        "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
-        ],
-        "responses": { "200": { "description": "TV show data" } }
-      }
-    },
-    "/api/tv/add": {
-      "post": {
-        "summary": "Add TV show",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "title": { "type": "string" },
-                  "description": { "type": "string" },
-                  "year": { "type": "integer" },
-                  "category": { "type": "string" },
-                  "poster": { "type": "string" },
-                  "seasons": { "type": "array" }
-                }
-              }
-            }
-          }
-        },
-        "responses": { "200": { "description": "TV show added successfully" } }
-      }
-    }
-  }
-                }
-    
+  apis: ["./server.js"],
+};
+
+export const swaggerSpec = swaggerJsdoc(options);
