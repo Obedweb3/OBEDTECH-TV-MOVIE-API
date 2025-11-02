@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OBEDTECH Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: 'Segoe UI'; background:#0d1117; color:#fff; text-align:center; padding:20px; }
+    input, textarea { width:90%; margin:6px; padding:10px; border-radius:8px; border:none; background:#161b22; color:#fff; }
+    button { background:#2196f3; border:none; padding:10px 20px; border-radius:10px; color:white; cursor:pointer; }
+    .box { background:#1e232b; border-radius:20px; padding:20px; width:90%; margin:auto; max-width:480px; }
+  </style>
+</head>
+<body>
+  <h1>🎬 OBEDTECH Admin Dashboard</h1>
+  <div class="box">
+    <h2>Add Movie</h2>
+    <input id="title" placeholder="Title">
+    <textarea id="description" placeholder="Description"></textarea>
+    <input id="year" placeholder="Year">
+    <input id="category" placeholder="Category">
+    <input id="poster" placeholder="Poster URL">
+    <input id="videoUrl" placeholder="Video URL">
+    <button onclick="addMovie()">Add Movie</button>
+  </div>
+  <script>
+    async function addMovie() {
+      const data = {
+        title: title.value,
+        description: description.value,
+        year: year.value,
+        category: category.value,
+        poster: poster.value,
+        videoUrl: videoUrl.value
+      };
+      const res = await fetch('/api/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const result = await res.json();
+      alert(result.success ? "✅ Movie Added!" : "❌ Failed: " + result.error);
+    }
+  </script>
+</body>
+</html>
