@@ -1,5 +1,5 @@
 {
-  "name": "obedtech-movie-api",
+  "name": "obedtech-api",
   "version": "1.0.0",
   "main": "server.js",
   "type": "module",
@@ -7,14 +7,11 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.19.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "mongoose": "^8.5.0",
-    "swagger-ui-express": "^5.0.0"
-    "engines": {
-  "node": "20.x"
-  }
-      
+    "express": "^4.19.2",
+    "mongoose": "^8.7.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   }
 }
