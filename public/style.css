@@ -1,0 +1,33 @@
+body {
+  background: linear-gradient(135deg, #000000, #1a1a1a);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.container {
+  max-width: 600px;
+}
+h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+.btn {
+  display: inline-block;
+  background: #2196f3;
+  color: white;
+  text-decoration: none;
+  padding: 0.8em 1.5em;
+  margin: 0.5em;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+.btn:hover {
+  background: #1769aa;
+}
+.btn.secondary {
+  background: #2729b0;
+}
